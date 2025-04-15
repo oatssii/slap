@@ -24,85 +24,15 @@ local Window = Fluent:CreateWindow({
 
 --Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
 local Tabs = {
-	ToyAuras = Window:AddTab({ Title = "Toy Auras", Icon = "" }),
+	
 	Player = Window:AddTab({ Title = "Player", Icon = "" }),
-	Troll = Window:AddTab({ Title = "Troll", Icon = "" }),
-	Effects = Window:AddTab({ Title = "Effects", Icon = "" }),
-	ESP = Window:AddTab({ Title = "ESP", Icon = "" }),
-	DirectionalPunch = Window:AddTab({ Title = "Directional Punch", Icon = "" })
+	DirectionalPunch = Window:AddTab({ Title = "punch shit", Icon = "" })
 }
 
 local Options = Fluent.Options
 
 do
 	-----------------------------------------------------
-	local Include = Tabs.ToyAuras:AddDropdown("Include", {
-		Title = "Include",
-		Values = {"Objects And Players","Objects","Players"},
-		Multi = false,
-		Default = 1,
-	})
-	local IncludeYourToys = Tabs.ToyAuras:AddToggle("IncludeYourToys", {Title = "Include Your Toys", Default = false })
-	local FlingAura = Tabs.ToyAuras:AddToggle("FlingAura", {Title = "Fling Aura", Default = false })
-	local FlingForce = Tabs.ToyAuras:AddSlider("FlingForce", {
-		Title = "Fling Force",
-		Description = nil,
-		Default = 100,
-		Min = 0,
-		Max = 1000000,
-		Rounding = 1
-	})
-
-	function FlingPart(part)
-		local chr = plr.Character
-		SetNetworkOwnerRemote:FireServer(part,part.CFrame)
-		local bodyForce = Instance.new("BodyForce")
-		local direction = (part.Position - chr:WaitForChild("HumanoidRootPart").Position).unit
-		bodyForce.Force = direction * Options.FlingForce.Value
-		bodyForce.Parent = part
-		game:GetService("Debris"):AddItem(bodyForce, 0.1)
-	end
-
-	local RunService = game:GetService("RunService")
-	RunService.Stepped:Connect(function()
-		if Options.FlingAura.Value == true and plr.Character then
-			local chr = plr.Character
-			local radius = 15
-			local region = Region3.new(
-				chr:WaitForChild("HumanoidRootPart").Position - Vector3.new(radius, radius, radius),
-				chr:WaitForChild("HumanoidRootPart").Position + Vector3.new(radius, radius, radius)
-			)
-
-			local parts = workspace:FindPartsInRegion3(region, nil, math.huge) -- No filtering by tags
-			for _, part in ipairs(parts) do
-				if not part.Anchored and part.Parent ~= chr and part:FindFirstChildOfClass("BodyForce") == nil and Options.FlingAura.Value == true then
-					if Options.Include.Value == "Objects" then
-						if part.Parent:FindFirstChildOfClass("Humanoid") == nil then
-							if Options.IncludeYourToys.Value == true then
-								if part.Parent and part.Parent:FindFirstChild("PlayerValue") == nil or part.Parent:FindFirstChild("PlayerValue").Value ~= plr then
-									FlingPart(part)
-								end
-							else
-								FlingPart(part)
-							end
-						end
-					elseif Options.Include.Value == "Players" then
-						if part.Parent:FindFirstChildOfClass("Humanoid") then
-							FlingPart(part)
-						end
-					elseif Options.Include.Value == "Objects And Players" then
-						if Options.IncludeYourToys.Value == true then
-							if part.Parent and part.Parent:FindFirstChild("PlayerValue") == nil or part.Parent:FindFirstChild("PlayerValue").Value ~= plr then
-								FlingPart(part)
-							end
-						else
-							FlingPart(part)
-						end
-					end
-				end
-			end
-		end
-	end)
 	-----------------------------------------------------
 	local WalkSpeed = Tabs.Player:AddToggle("WalkSpeed", {Title = "WalkSpeed", Default = false })
 	local Speed = Tabs.Player:AddSlider("Speed", {
@@ -207,12 +137,12 @@ do
 
 
 	Tabs.DirectionalPunch:AddButton({
-		Title = "Start",
+		Title = "not done dont use",
 		Description = "Start the event!",
 		Callback = function()
 			Window:Dialog({
-				Title = "Start Directional Punch?",
-				Content = "You cannot stop this event once it has started. Spawn DRAWERS for a better effect",
+				Title = "i said dont",
+				Content = "u gotta reset to stop it if u start it and chance u get perm die dont use",
 				Buttons = {
 					{
 						Title = "Confirm",
