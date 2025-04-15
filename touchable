@@ -242,12 +242,12 @@ do
 
 
 	plr:GetMouse().KeyDown:Connect(function(key)
-		if key == "1" then
+		if key == "2" then
 			if Options.SuperSlam.Value == true then
 				FinalRipOff_Move()
 			end
 		end
-		if key == "2" then
+		if key == "q" then
 			if Options.SuperThrowPunch.Value == true then
 				local radius = 10
 				local region = Region3.new(
