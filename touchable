@@ -26,7 +26,7 @@ local Window = Fluent:CreateWindow({
 local Tabs = {
 	
 	Player = Window:AddTab({ Title = "Player", Icon = "" }),
-	DirectionalPunch = Window:AddTab({ Title = "punch shit", Icon = "" })
+	DirectionalPunch = Window:AddTab({ Title = "punch", Icon = "" })
 }
 
 local Options = Fluent.Options
@@ -168,8 +168,8 @@ do
 	})
 
 
-	local SuperSlam = Tabs.DirectionalPunch:AddToggle("SuperSlam", {Title = "test", Default = false })
-	local SuperThrowPunch = Tabs.DirectionalPunch:AddToggle("SuperThrowPunch", {Title = "punch shits idk", Default = true })
+	local SuperSlam = Tabs.Punch:AddToggle("SuperSlam", {Title = "test", Default = false })
+	local SuperThrowPunch = Tabs.Punch:AddToggle("SuperThrowPunch", {Title = "punch shits idk", Default = true })
 
 
 	plr:GetMouse().KeyDown:Connect(function(key)
