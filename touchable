@@ -172,7 +172,7 @@ do
 
 
 	plr:GetMouse().KeyDown:Connect(function(key)
-		if key == "2" then
+		if key == "l" then
 			if Options.SuperSlam.Value == true then
 				FinalRipOff_Move()
 			end
