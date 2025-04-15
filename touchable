@@ -99,6 +99,7 @@ do
 		if Bool == true then
 			game.Players.LocalPlayer.CameraMode = Enum.CameraMode.Classic
 			game.Players.LocalPlayer.CameraMaxZoomDistance = 100000
+                        speaker.DevEnableMouseLock = true
 		else
 			game.Players.LocalPlayer.CameraMode = Enum.CameraMode.LockFirstPerson
 			game.Players.LocalPlayer.CameraMaxZoomDistance = 0
