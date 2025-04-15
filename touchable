@@ -167,8 +167,8 @@ do
 	})
 
 
-	local SuperSlam = Tabs.DirectionalPunch:AddToggle("SuperSlam", {Title = "Super Slam", Default = false })
-	local SuperThrowPunch = Tabs.DirectionalPunch:AddToggle("SuperThrowPunch", {Title = "Super Throw Punch", Default = false })
+	local SuperSlam = Tabs.DirectionalPunch:AddToggle("SuperSlam", {Title = "test", Default = false })
+	local SuperThrowPunch = Tabs.DirectionalPunch:AddToggle("SuperThrowPunch", {Title = "punch shits idk", Default = false })
 
 
 	plr:GetMouse().KeyDown:Connect(function(key)
